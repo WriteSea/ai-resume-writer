@@ -104,7 +104,7 @@ JSON_info_validator = Agent(
 )
 
 #### Agent #2's task is to make sure the extracted information from resume is complete and if not, request information from the user.
-JOSN_validation_task = Task(
+JSON_validation_task = Task(
     description=f"""
 Ensure that the given JSON object conforms to the following schema, with all fields strictly filled:
 
@@ -136,7 +136,7 @@ If any of the above information fields is missing, incomplete, or doesn't look r
 
 crew = Crew(
     agents=[info_extractor, JSON_info_validator],
-    tasks=[info_extraction_task, JOSN_validation_task],
+    tasks=[info_extraction_task, JSON_validation_task],
     verbose=2,
 )
 crew.kickoff()
